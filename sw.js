@@ -1,5 +1,5 @@
 // V2-KPI Service Worker for PWA Offline Caching
-const CACHE_NAME = 'v2-kpi-cache-v1';
+const CACHE_NAME = 'v2-kpi-cache-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -8,6 +8,7 @@ const STATIC_ASSETS = [
   './apple-touch-icon.png',
   './icon-192.png',
   './icon-512.png',
+  './favicon.png',
   './1.jpg',
   './2.jpg',
   './3.jpg',
@@ -43,7 +44,6 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Network first, fallback to cache
   if (event.request.method !== 'GET') return;
   event.respondWith(
     fetch(event.request)
