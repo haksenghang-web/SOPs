@@ -6,7 +6,7 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>V2-KPI | ប្រព័ន្ធគ្រប់គ្រង SOP & KPI</title>
+  <title>V2 HR | ប្រព័ន្ធគ្រប់គ្រង SOP & KPI</title>
   <link rel="icon" type="image/png" sizes="512x512" href="v2b.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
@@ -16,8 +16,8 @@
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="V2-KPI">
-  <meta name="application-name" content="V2-KPI">
+  <meta name="apple-mobile-web-app-title" content="V2 HR">
+  <meta name="application-name" content="V2 HR">
   <meta name="theme-color" content="#ffffff">
   
   <!-- Google Fonts: Kantumruy Pro & Battambang -->
@@ -197,7 +197,7 @@
         <div class="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center mx-auto shadow-xl border-2 border-white/40">
           <img src="v2b.png" alt="V2 Education Logo" class="w-full h-full object-contain rounded-xl" onerror="this.src='apple-touch-icon.png'">
         </div>
-        <h2 class="font-display font-black text-2xl tracking-tight">V2-KPI SYSTEM</h2>
+        <h2 class="font-display font-black text-2xl tracking-tight">V2 HR SYSTEM</h2>
         <p class="text-xs text-blue-200">ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃការងារបុគ្គលិកតាមស្តង់ដារ SOP</p>
         <div class="inline-flex items-center space-x-1.5 bg-white/10 px-3 py-1 rounded-full text-[11px] text-amber-300 font-semibold border border-white/10">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
@@ -276,7 +276,7 @@
           </div>
           <div>
             <div class="flex items-center space-x-2">
-              <span id="headerAppTitle" class="font-display font-black text-lg sm:text-xl text-slate-900 tracking-tight">V2-KPI</span>
+              <span id="headerAppTitle" class="font-display font-black text-lg sm:text-xl text-slate-900 tracking-tight">V2 HR</span>
               <span class="bg-blue-50 text-[#007AFF] text-[10px] sm:text-xs px-2.5 py-0.5 rounded-full font-bold border border-blue-100 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-[#007AFF] animate-pulse"></span> Pro</span>
             </div>
             <p id="headerSchoolSubtitle" class="text-xs text-slate-500 font-medium hidden sm:block">School SOP & KPI Management System</p>
@@ -1005,7 +1005,7 @@
 
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">ចំណងជើងប្រព័ន្ធ (App Title)</label>
-            <input type="text" id="cfgAppTitle" placeholder="ឧ. V2-KPI | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-900/20 font-semibold text-slate-800">
+            <input type="text" id="cfgAppTitle" placeholder="ឧ. V2 HR | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-900/20 font-semibold text-slate-800">
             <p class="text-[10px] text-slate-400 mt-1">💡 បង្ហាញលើ Header ផ្នែកខាងលើនៃកម្មវិធី និងផ្ទាំង Login</p>
           </div>
 
@@ -1194,7 +1194,7 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="no-print mt-auto border-t border-slate-200 bg-white py-4 text-center text-xs text-slate-500 font-medium">
     <div class="w-full max-w-[1720px] mx-auto px-3 sm:px-5 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 transition-all duration-300">
-      <p id="footerCopyText">© ២០២៦ V2-KPI • ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃការងារតាមសាខាសាលារៀន</p>
+      <p id="footerCopyText">© ២០២៦ V2 HR • ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃការងារតាមសាខាសាលារៀន</p>
       <div class="flex items-center space-x-3 text-xs flex-wrap justify-center">
         <button type="button" onclick="exportSystemBackupJSON()" class="text-emerald-700 hover:text-emerald-800 font-bold hover:underline inline-flex items-center gap-1 cursor-pointer">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
@@ -2194,7 +2194,7 @@
     // --- DEFAULT SYSTEM SETTINGS (FULLY CUSTOMIZABLE BY SUPER ADMIN) ---
     const DEFAULT_SYSTEM_SETTINGS = {
       schoolName: 'វិទ្យាស្ថានអប់រំ វីធូ (V2 Education Institution)',
-      appTitle: 'V2-KPI | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP',
+      appTitle: 'V2 HR | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP',
       academicYear: 'ឆ្នាំសិក្សា ២០២៥ - ២០២៦',
       printSigner1: 'អ្នករៀបចំរបាយការណ៍',
       printSigner2: 'បានឃើញ និងពិនិត្យដោយ ប្រធានសាខា',
@@ -2428,6 +2428,10 @@
           // Fallback only if properties are missing, NEVER overwrite existing user settings:
           if (!systemSettings.schoolName) systemSettings.schoolName = DEFAULT_SYSTEM_SETTINGS.schoolName;
           if (!systemSettings.appTitle) systemSettings.appTitle = DEFAULT_SYSTEM_SETTINGS.appTitle;
+          if (systemSettings.appTitle && systemSettings.appTitle.includes('V2-KPI')) {
+            systemSettings.appTitle = systemSettings.appTitle.replace(/V2-KPI/g, 'V2 HR');
+            try { localStorage.setItem('systemSettings', JSON.stringify(systemSettings)); } catch(e){}
+          }
           if (!systemSettings.academicYear) systemSettings.academicYear = DEFAULT_SYSTEM_SETTINGS.academicYear;
           if (!systemSettings.printSigner1) systemSettings.printSigner1 = DEFAULT_SYSTEM_SETTINGS.printSigner1;
           if (!systemSettings.printSigner2) systemSettings.printSigner2 = DEFAULT_SYSTEM_SETTINGS.printSigner2;
@@ -4092,7 +4096,7 @@
     function autoFillStandardInstitutionSettings() {
       const standardVals = {
         schoolName: 'វិទ្យាស្ថានអប់រំ វីធូ (V2 Education Institution)',
-        appTitle: 'V2-KPI | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP',
+        appTitle: 'V2 HR | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP',
         academicYear: 'ឆ្នាំសិក្សា ២០២៥ - ២០២៦',
         signer1: 'អ្នករៀបចំរបាយការណ៍',
         signer2: 'បានឃើញ និងពិនិត្យដោយ ប្រធានសាខា',
@@ -6679,7 +6683,7 @@
     function exportSystemBackupJSON() {
       try {
         const backupData = {
-          app: 'V2-KPI SOP System',
+          app: 'V2 HR SOP System',
           version: '2.0',
           exportedAt: new Date().toISOString(),
           schoolName: systemSettings ? systemSettings.schoolName : '',
@@ -6696,7 +6700,7 @@
         const now = new Date();
         const dateStr = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         a.href = url;
-        a.download = `V2_KPI_Backup_${dateStr}.json`;
+        a.download = `V2_HR_Backup_${dateStr}.json`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -6718,7 +6722,7 @@
         try {
           const data = JSON.parse(e.target.result);
           if (!data || (!data.staffList && !data.assessments && !data.systemSettings)) {
-            alert('File នេះមិនមែនជា File បម្រុងទុកត្រឹមត្រូវរបស់ប្រព័ន្ធ V2-KPI ឡើយ!');
+            alert('File នេះមិនមែនជា File បម្រុងទុកត្រឹមត្រូវរបស់ប្រព័ន្ធ V2 HR ឡើយ!');
             return;
           }
 

@@ -1,10 +1,11 @@
-// V2-KPI Service Worker for PWA Offline Caching
-const CACHE_NAME = 'v2-kpi-cache-v2';
+// V2 HR Service Worker for PWA Offline Caching
+const CACHE_NAME = 'v2-hr-cache-v1';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './v2b.png',
+  './V2 Logo.png',
   './apple-touch-icon.png',
   './icon-192.png',
   './icon-512.png',
