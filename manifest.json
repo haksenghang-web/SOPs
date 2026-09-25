@@ -9,9 +9,9 @@
   "theme_color": "#007AFF",
   "icons": [
     {
-      "src": "v2b.png",
+      "src": "V2 Logo.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     },
     {

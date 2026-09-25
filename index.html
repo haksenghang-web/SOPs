@@ -6,14 +6,13 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>V2 HR | ប្រព័ន្ធគ្រប់គ្រង SOP & KPI</title>
-  <link rel="icon" type="image/png" sizes="512x512" href="v2b.png">
+  <title>V2 HR</title>
+  <link rel="icon" type="image/jpeg" sizes="512x512" href="V2 Logo.jpg">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
-  <link rel="shortcut icon" type="image/png" href="v2b.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="apple-touch-icon" href="v2b.png">
-  <link rel="apple-touch-icon-precomposed" href="v2b.png">
+  <link rel="apple-touch-icon" href="V2 Logo.jpg">
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -196,7 +195,7 @@
       <div class="bg-gradient-to-tr from-blue-950 via-blue-900 to-indigo-900 text-white p-6 text-center space-y-2 relative overflow-hidden">
         <div class="absolute -right-6 -bottom-6 w-28 h-28 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
         <div class="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center mx-auto shadow-xl border-2 border-white/40">
-          <img src="v2b.png" alt="V2 Education Logo" class="w-full h-full object-contain rounded-xl" onerror="this.src='apple-touch-icon.png'">
+          <img src="V2 Logo.jpg" alt="V2 HR Logo" class="w-full h-full object-contain rounded-xl" onerror="this.src='icon-192.png'">
         </div>
         <h2 class="font-display font-black text-2xl tracking-tight">V2 HR</h2>
         <p class="text-xs text-blue-200">ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃការងារបុគ្គលិកតាមស្តង់ដារ SOP</p>
@@ -273,7 +272,7 @@
         <!-- Brand Logo & Title -->
         <div class="flex items-center space-x-3 rtl:space-x-reverse">
           <div class="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-white p-1 flex items-center justify-center shadow-md border border-slate-200 shrink-0">
-            <img src="v2b.png" alt="V2 Education Logo" class="w-full h-full object-contain rounded-xl">
+            <img src="V2 Logo.jpg" alt="V2 HR Logo" class="w-full h-full object-contain rounded-xl" onerror="this.src='icon-192.png'">
           </div>
           <div>
             <div class="flex items-center space-x-2">
@@ -1969,7 +1968,7 @@
               <!-- Left: Institution Identity -->
               <div class="flex items-center space-x-3">
                 <div class="w-14 h-14 rounded-2xl bg-white p-1 border-2 border-amber-400 shadow-md flex items-center justify-center shrink-0">
-                  <img src="v2b.png" alt="V2 Education Logo" class="w-full h-full object-contain" onerror="this.src='apple-touch-icon.png'">
+                  <img src="V2 Logo.jpg" alt="V2 HR Logo" class="w-full h-full object-contain" onerror="this.src='icon-192.png'">
                 </div>
                 <div>
                   <h3 id="certInstitutionName" class="font-display font-black text-blue-950 text-base leading-tight">វិទ្យាស្ថានអប់រំ វីធូ (V2 Education Institution)</h3>
@@ -2437,7 +2436,7 @@
           }
           // Fallback only if properties are missing, NEVER overwrite existing user settings:
           if (!systemSettings.schoolName) systemSettings.schoolName = DEFAULT_SYSTEM_SETTINGS.schoolName;
-          if (!systemSettings.appTitle || systemSettings.appTitle.includes('V2-KPI') || systemSettings.appTitle.includes('ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃ')) {
+          if (!systemSettings.appTitle || systemSettings.appTitle !== 'V2 HR') {
             systemSettings.appTitle = 'V2 HR';
             try { localStorage.setItem('systemSettings', JSON.stringify(systemSettings)); } catch(e){}
           }
@@ -2575,9 +2574,7 @@
       // 1. App Title & Subtitle & School Name
       const headerTitle = document.getElementById('headerAppTitle');
       if (headerTitle) {
-        let t = systemSettings.appTitle || 'V2 HR';
-        if (t.includes('V2-KPI') || t.includes('ប្រព័ន្ធគ្រប់គ្រង')) t = 'V2 HR';
-        headerTitle.textContent = t;
+        headerTitle.textContent = 'V2 HR';
       }
 
       const headerSub = document.getElementById('headerSchoolSubtitle');
@@ -5682,7 +5679,7 @@
         <!-- Official Header -->
         <div class="flex items-center justify-between pb-4 border-b-2 border-blue-900 gap-4">
           <div class="flex items-center space-x-3.5">
-            <img src="v2b.png" alt="V2 Logo" class="w-14 h-14 object-contain rounded-xl p-1 bg-white border border-slate-200 shadow-xs" onerror="this.src='apple-touch-icon.png'">
+            <img src="V2 Logo.jpg" alt="V2 HR Logo" class="w-14 h-14 object-contain rounded-xl p-1 bg-white border border-slate-200 shadow-xs" onerror="this.src='icon-192.png'">
             <div>
               <h2 class="text-xl font-bold font-display text-blue-950 tracking-wide uppercase">V2 EDUCATION</h2>
               <p class="text-xs font-bold text-amber-600">សាលាបណ្តុះបណ្តាល និងអភិវឌ្ឍន៍ជំនាញអន្តរជាតិ</p>

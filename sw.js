@@ -1,13 +1,16 @@
 // V2 HR Service Worker for PWA Offline Caching
-const CACHE_NAME = 'v2-hr-cache-v2';
+const CACHE_NAME = 'v2-hr-cache-v3';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './V2 Logo.jpg',
   './v2b.png',
   './apple-touch-icon.png',
   './icon-192.png',
   './icon-512.png',
+  './favicon.png',
+  './favicon.ico',
   './1.jpg',
   './2.jpg',
   './3.jpg',
