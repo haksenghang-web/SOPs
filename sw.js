@@ -1,0 +1,61 @@
+// V2-KPI Service Worker for PWA Offline Caching
+const CACHE_NAME = 'v2-kpi-cache-v1';
+const STATIC_ASSETS = [
+  './',
+  './index.html',
+  './manifest.json',
+  './v2b.png',
+  './apple-touch-icon.png',
+  './icon-192.png',
+  './icon-512.png',
+  './1.jpg',
+  './2.jpg',
+  './3.jpg',
+  './4.jpg',
+  './5.jpg',
+  './6.jpg',
+  './7.jpg',
+  './8.jpg'
+];
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(STATIC_ASSETS);
+    })
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    })
+  );
+  self.clients.claim();
+});
+
+self.addEventListener('fetch', (event) => {
+  // Network first, fallback to cache
+  if (event.request.method !== 'GET') return;
+  event.respondWith(
+    fetch(event.request)
+      .then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200 && event.request.url.startsWith(self.location.origin)) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        }
+        return networkResponse;
+      })
+      .catch(() => caches.match(event.request))
+  );
+});
