@@ -1,15 +1,13 @@
 // V2 HR Service Worker for PWA Offline Caching
-const CACHE_NAME = 'v2-hr-cache-v1';
+const CACHE_NAME = 'v2-hr-cache-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './v2b.png',
-  './V2 Logo.png',
   './apple-touch-icon.png',
   './icon-192.png',
   './icon-512.png',
-  './favicon.png',
   './1.jpg',
   './2.jpg',
   './3.jpg',
@@ -23,7 +21,14 @@ const STATIC_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
+      // Use map with catch to ensure install succeeds even if one non-critical asset fails
+      return Promise.all(
+        STATIC_ASSETS.map((asset) => {
+          return cache.add(asset).catch((err) => {
+            console.warn('V2 HR cache item skip:', asset, err);
+          });
+        })
+      );
     })
   );
   self.skipWaiting();

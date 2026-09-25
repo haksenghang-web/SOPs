@@ -9,7 +9,8 @@
   <title>V2 HR | ប្រព័ន្ធគ្រប់គ្រង SOP & KPI</title>
   <link rel="icon" type="image/png" sizes="512x512" href="v2b.png">
   <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icon-192.png">
+  <link rel="shortcut icon" type="image/png" href="v2b.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="apple-touch-icon" href="v2b.png">
   <link rel="apple-touch-icon-precomposed" href="v2b.png">
@@ -197,7 +198,7 @@
         <div class="w-16 h-16 rounded-2xl bg-white p-1.5 flex items-center justify-center mx-auto shadow-xl border-2 border-white/40">
           <img src="v2b.png" alt="V2 Education Logo" class="w-full h-full object-contain rounded-xl" onerror="this.src='apple-touch-icon.png'">
         </div>
-        <h2 class="font-display font-black text-2xl tracking-tight">V2 HR SYSTEM</h2>
+        <h2 class="font-display font-black text-2xl tracking-tight">V2 HR</h2>
         <p class="text-xs text-blue-200">ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃការងារបុគ្គលិកតាមស្តង់ដារ SOP</p>
         <div class="inline-flex items-center space-x-1.5 bg-white/10 px-3 py-1 rounded-full text-[11px] text-amber-300 font-semibold border border-white/10">
           <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
@@ -1005,7 +1006,7 @@
 
           <div>
             <label class="block text-xs font-bold text-slate-700 mb-1">ចំណងជើងប្រព័ន្ធ (App Title)</label>
-            <input type="text" id="cfgAppTitle" placeholder="ឧ. V2 HR | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-900/20 font-semibold text-slate-800">
+            <input type="text" id="cfgAppTitle" placeholder="ឧ. V2 HR" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-900/20 font-semibold text-slate-800">
             <p class="text-[10px] text-slate-400 mt-1">💡 បង្ហាញលើ Header ផ្នែកខាងលើនៃកម្មវិធី និងផ្ទាំង Login</p>
           </div>
 
@@ -2194,7 +2195,7 @@
     // --- DEFAULT SYSTEM SETTINGS (FULLY CUSTOMIZABLE BY SUPER ADMIN) ---
     const DEFAULT_SYSTEM_SETTINGS = {
       schoolName: 'វិទ្យាស្ថានអប់រំ វីធូ (V2 Education Institution)',
-      appTitle: 'V2 HR | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP',
+      appTitle: 'V2 HR',
       academicYear: 'ឆ្នាំសិក្សា ២០២៥ - ២០២៦',
       printSigner1: 'អ្នករៀបចំរបាយការណ៍',
       printSigner2: 'បានឃើញ និងពិនិត្យដោយ ប្រធានសាខា',
@@ -2385,8 +2386,17 @@
       try {
         if ('caches' in window) {
           caches.keys().then(names => {
-            names.forEach(name => caches.delete(name));
+            return Promise.all(names.map(name => caches.delete(name)));
+          }).then(() => {
+            if ('serviceWorker' in navigator) {
+              return navigator.serviceWorker.getRegistrations().then(regs => {
+                return Promise.all(regs.map(r => r.unregister()));
+              });
+            }
+          }).finally(() => {
+            window.location.href = window.location.pathname + '?v=' + Date.now();
           });
+          return;
         }
       } catch (e) {}
       window.location.reload(true);
@@ -2427,9 +2437,8 @@
           }
           // Fallback only if properties are missing, NEVER overwrite existing user settings:
           if (!systemSettings.schoolName) systemSettings.schoolName = DEFAULT_SYSTEM_SETTINGS.schoolName;
-          if (!systemSettings.appTitle) systemSettings.appTitle = DEFAULT_SYSTEM_SETTINGS.appTitle;
-          if (systemSettings.appTitle && systemSettings.appTitle.includes('V2-KPI')) {
-            systemSettings.appTitle = systemSettings.appTitle.replace(/V2-KPI/g, 'V2 HR');
+          if (!systemSettings.appTitle || systemSettings.appTitle.includes('V2-KPI') || systemSettings.appTitle.includes('ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃ')) {
+            systemSettings.appTitle = 'V2 HR';
             try { localStorage.setItem('systemSettings', JSON.stringify(systemSettings)); } catch(e){}
           }
           if (!systemSettings.academicYear) systemSettings.academicYear = DEFAULT_SYSTEM_SETTINGS.academicYear;
@@ -2565,7 +2574,11 @@
 
       // 1. App Title & Subtitle & School Name
       const headerTitle = document.getElementById('headerAppTitle');
-      if (headerTitle) headerTitle.textContent = systemSettings.appTitle;
+      if (headerTitle) {
+        let t = systemSettings.appTitle || 'V2 HR';
+        if (t.includes('V2-KPI') || t.includes('ប្រព័ន្ធគ្រប់គ្រង')) t = 'V2 HR';
+        headerTitle.textContent = t;
+      }
 
       const headerSub = document.getElementById('headerSchoolSubtitle');
       if (headerSub) headerSub.textContent = systemSettings.schoolName;
@@ -4096,7 +4109,7 @@
     function autoFillStandardInstitutionSettings() {
       const standardVals = {
         schoolName: 'វិទ្យាស្ថានអប់រំ វីធូ (V2 Education Institution)',
-        appTitle: 'V2 HR | ប្រព័ន្ធគ្រប់គ្រង និងវាយតម្លៃបុគ្គលិកតាមស្តង់ដារ SOP',
+        appTitle: 'V2 HR',
         academicYear: 'ឆ្នាំសិក្សា ២០២៥ - ២០២៦',
         signer1: 'អ្នករៀបចំរបាយការណ៍',
         signer2: 'បានឃើញ និងពិនិត្យដោយ ប្រធានសាខា',
